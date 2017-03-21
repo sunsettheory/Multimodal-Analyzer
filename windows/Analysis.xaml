@@ -1,0 +1,57 @@
+﻿<Window x:Class="Microsoft.Samples.Kinect.VisualizadorMultimodal.windows.Analysis"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Microsoft.Samples.Kinect.VisualizadorMultimodal.windows"
+        mc:Ignorable="d"
+        Title="Análisis" Height="388.012" Width="862.572" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,3,0.4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="245*"/>
+            <ColumnDefinition Width="607*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Background="CornflowerBlue" Orientation="Vertical" Margin="0,10,9,9.6">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <ComboBox x:Name="personComboBox" HorizontalAlignment="Center" Height="32"  Width="195" Margin="0,40,0,20" VerticalAlignment="Top" SelectionChanged="personComboBox_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10,0" Height="219"  >
+                <Label x:Name="promInt" FontSize="20" Content="Tiempo promedio de" Width="213" Margin="13,55,0,70"/>
+                <Label x:Name="promInt_Copy" FontSize="20" Content="interacción:" Width="110" Margin="-228,80,0,86"/>
+                <!-- <Label x:Name="InteractionAverage" Content="" Margin="0,0,0,-0.4"/> -->
+            </StackPanel>
+            <!-- <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label x:Name="totalInt" Content="Total de Interacciones Detectadas:" HorizontalAlignment="Center" Height="30"  Width="195" Margin="0,0,0,10"></Label>
+                <Label x:Name="asd" Content=""/>
+            </StackPanel> -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="42,0,42.2,0" Height="148">
+                <Label x:Name="InteractionAverage" FontSize="50" Content="" Margin="0,-129,0,205" Width="118"/>
+            </StackPanel>
+
+
+            <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label x:Name="minInt" Content="Mínimo de Interacciones:" HorizontalAlignment="Center" Height="30"  Width="195" Margin="0,0,0,10"></Label>
+                <Label x:Name="asfsadsa" Content=""/>
+            </StackPanel>-->
+
+            <!--<StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label x:Name="maxInt" Content="Máximo de Interacciones:" HorizontalAlignment="Center" Height="30"  Width="195" Margin="0,0,0,10"></Label>
+                <Label x:Name="dsad" Content=""/>
+            </StackPanel>-->
+
+        </StackPanel>
+
+        <DataGrid x:Name="resultDataGrid" Background="Gainsboro" AutoGenerateColumns="False" Margin="0,10,0,11.6" Grid.Column="1" SelectionChanged="resultDataGrid_SelectionChanged" HorizontalAlignment="Left" Width="597">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Persona A" Binding="{Binding Person1}"/>
+                <DataGridTextColumn Header="Persona B" Binding="{Binding Person2}" />
+                <DataGridTextColumn Header="Inicio de interacción" Binding="{Binding StartTimeFormatted}" />
+                <DataGridTextColumn Header="Fin de interacción" Binding="{Binding EndTimeFormatted}" />
+                <DataGridTextColumn Header="Duración de interacción" Binding="{Binding DurationFormatted}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
